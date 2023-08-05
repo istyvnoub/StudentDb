@@ -40,9 +40,49 @@ public class Student {
 
   }
 
-  //Email in course
+  //Enroll in course
+  public void enroll (){
 
+    do {
+
+      System.out.println("Enter course the enroll (q to quit)");
+      Scanner in = new Scanner(System.in);
+      String course = in.nextLine();
+
+      if (!course.equals("q")) {
+        courses = courses + "\n" + course;
+        tuitionBalance = tuitionBalance+ costOfCourse;
+      }else {
+        break;
+      }
+
+    }while (1 !=0);
+    System.out.println("Enrollment :" + courses);
+    System.out.println("TUITION BALANCE : " + tuitionBalance);
+  }
+
+ //View Balance
+  public void viewBalance () {
+    System.out.println("your Balance is :  $ " + tuitionBalance );
+
+  }
+
+  public void payTuition(){
+    System.out.println("Enter your payment $ :");
+    Scanner in = new Scanner(System.in);
+    int payment = in.nextInt();
+    tuitionBalance = tuitionBalance -payment;
+    System.out.println(" Thank you for your payment : " + payment);
+    viewBalance();
+
+  }
   //pay
 
   // show status
+
+  public String toString (){
+    return "Name: "+ firstname + " " + lastname +
+           "\nCourses Enrolled" + courses +
+            "\nBalance: $" + tuitionBalance;
+  }
 }
